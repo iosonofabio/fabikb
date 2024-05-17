@@ -26,9 +26,9 @@ units:
   inner_stagger: -5
   inner_spread: 1cx
 
-  usb_cutout_x:  51.64
+  usb_cutout_x:  54
   usb_cutout_y: 2.10
-  usb_cutout_r: -15.5
+  usb_cutout_r: -0
 
   # Constants
   choc_cap_x: 17.5
@@ -69,6 +69,8 @@ points:
           reverse: false
   zones:
     alphas:
+      anchor:
+        shift: [50, -100]
       rows:
         bottom.padding: row_spacing
         home.padding: row_spacing
@@ -177,7 +179,7 @@ outlines:
         - ref: alphas_inner_top
           shift:  [0.75choc_cap_x, 0.75choc_cap_y]
         - ref: alphas_inner_top
-          shift:  [1.25choc_cap_x, 0.75choc_cap_y]
+          shift:  [1.45choc_cap_x, 0.75choc_cap_y]
         - ref: thumbkeys_near_thumb
           shift: [0.75choc_cap_x, 1choc_cap_y]
         - ref: thumbkeys_home_thumb
@@ -209,7 +211,7 @@ outlines:
   _fillet:
     - what: outline
       name: _main
-      fillet: 1
+      fillet: 4
   combined: [
       _fillet,
       -_usb_c_cutout
@@ -239,5 +241,15 @@ cases:
 pcbs:
   fabikb:
     outlines:
-      - outline: combined
-
+      main:
+        outline: combined
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: GND
+          to: "{{key_net}}"
