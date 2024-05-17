@@ -1,7 +1,7 @@
 {
   "scripts": {
     "gen": "ergogen -d .",
-    "open": "npm run && pcbnew output/pcbs/board.kicad_pcb",
+    "open": "npm run gen && pcbnew output/pcbs/fabikb.kicad_pcb",
     "help": "ergogen --help"
   },
   "dependencies": {

@@ -26,9 +26,9 @@ units:
   inner_stagger: -5
   inner_spread: 1cx
 
-  usb_cutout_x:  54
-  usb_cutout_y: 2.10
-  usb_cutout_r: -0
+  usb_cutout_x:  57.5
+  usb_cutout_y: -1.10
+  usb_cutout_r: -2.5
 
   # Constants
   choc_cap_x: 17.5
@@ -177,11 +177,11 @@ outlines:
         - ref: alphas_index_top
           shift:  [0.75choc_cap_x, 0.75choc_cap_y]
         - ref: alphas_inner_top
-          shift:  [0.75choc_cap_x, 0.75choc_cap_y]
+          shift:  [0.75choc_cap_x, 0.5choc_cap_y]
         - ref: alphas_inner_top
-          shift:  [1.45choc_cap_x, 0.75choc_cap_y]
+          shift:  [1.75choc_cap_x, 0.5choc_cap_y]
         - ref: thumbkeys_near_thumb
-          shift: [0.75choc_cap_x, 1choc_cap_y]
+          shift: [1.1choc_cap_x, 1choc_cap_y]
         - ref: thumbkeys_home_thumb
           shift: [1choc_cap_x, -0.75choc_cap_y]
         - ref: thumbkeys_home_thumb
@@ -211,7 +211,7 @@ outlines:
   _fillet:
     - what: outline
       name: _main
-      fillet: 4
+      fillet: 3
   combined: [
       _fillet,
       -_usb_c_cutout
@@ -253,3 +253,12 @@ pcbs:
           hotswap: true
           from: GND
           to: "{{key_net}}"
+
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: alphas_inner_top
+          shift: [20, -10]
+          rotate: 270
